@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма з підказкою</title>
+
+    <!-- Підключення jQuery та jQuery Validate -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Додаємо власний метод для перевірки регулярного виразу
+            $.validator.addMethod("pattern", function(value, element, param) {
+                return this.optional(element) || param.test(value);
+            }, "Введене значення некоректне!");
+
+            // Виконуємо валідацію форми за допомогою jQuery Validate
+            $("#regform").validate({
+                rules: {
+                    // Вказуємо правила для кожного поля
+                    name: {
+                        required: true,
+                        pattern: /^[A-Za-zА-Яа-яІіЇїЄє]+$/ // Лише літери
+                    },
+                    email: {
+                        required: true,
+                        email: true // Вбудоване правило для перевірки формату email
+                    },
+                    phone: {
+                        required: true,
+                        pattern: /^\+380\d{9}$/ // Формат українського номера
+                    }
+                },
+                messages: {
+                    // Кастомізовані повідомлення для кожного правила
+                    name: {
+                        required: "Це поле обов'язкове",
+                        pattern: "Ім'я повинно містити тільки букви!"
+                    },
+                    email: {
+                        required: "Це поле обов'язкове",
+                        email: "Неправильний формат електронної пошти!"
+                    },
+                    phone: {
+                        required: "Це поле обов'язкове",
+                        pattern: "Номер телефону має бути у форматі +380123456789!"
+                    }
+                },
+                submitHandler: function(form) {
+                    // Виконати, якщо всі поля пройшли валідацію
+                    alert("Усі дані введено коректно!");
+                    form.submit(); // Надсилаємо форму, якщо всі дані коректні
+                }
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            align-items: center;
+            justify-content: center;
+            background-color: #fffa67;
+            display: grid;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 200px;
+            margin-bottom: auto;
+        }
+        h1 {
+            display: flex;
+            justify-content: center;
+            font-size: 35px;
+        }
+        form {
+            display: grid;
+            justify-content: center;
+            margin: auto;
+            width: 250px;
+            padding: 30px;
+            background-color: rgba(25, 210, 255, 0.61);
+            border: 3px solid #000000;
+            border-radius: 50px;
+        }
+        label, input, textarea {
+            margin-bottom: 5px;
+        }
+        input[type="submit"] {
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgb(43, 167, 48);
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Лабораторна робота №11</h1>
+    </div>
+    <div>
+        <form id="regform">
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" name="name"><br>
+            
+            <label for="surname">Прізвище:</label>
+            <input type="text" id="surname" name="surname"><br>
+
+            <label for="email">Електронна пошта:</label>
+            <input type="email" id="email" name="email"><br>
+
+            <label for="phone">Номер телефону:</label>
+            <input type="text" id="phone" name="phone" required>
+
+
+            <input type="submit" value="Надіслати">
+        </form>
+    </div>
+</body>
+</html>

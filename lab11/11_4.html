@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студентський Об'єкт</title>
+    <script>
+        // Функція-конструктор для створення об'єкта Student
+        function Student(name, surname, age, course) {
+            this.name = name; // Ім'я студента
+            this.surname = surname; // Прізвище студента
+            this.age = age; // Вік студента
+            this.course = course; // Курс студента (номер курсу)
+
+            // Метод для зміни віку на вказану кількість років
+            this.GetOlder = function(years) {
+                this.age += years; // Додаємо зазначену кількість років до поточного віку
+            };
+
+            // Метод для зміни прізвища
+            this.ChangeSurname = function(newSurname) {
+                this.surname = newSurname; // Заміна поточного прізвища на нове
+            };
+
+            // Метод для переведення на наступний курс
+            this.MoveToSecondCourse = function() {
+                if (this.course < 5) {  // Перевіряємо, щоб курс не перевищував 5
+                    this.course += 1; // Переведення на наступний курс
+                } else {
+                    alert(this.name + " вже на останньому курсі!");
+                }
+            };
+
+            // Метод для виведення інформації про студента
+            this.getInfo = function() {
+                return `Студент: ${this.name} ${this.surname}, Вік: ${this.age}, Курс: ${this.course}`;
+            };
+        }
+
+        // Функція для тестування об'єкта Student
+        function testStudent() {
+            // Створюємо нового студента
+            const student = new Student("Артем", "Салатун", 18, 1);
+
+            // Виводимо початкову інформацію про студента
+            document.getElementById("info").innerHTML = student.getInfo();
+
+            // Збільшуємо вік студента на 2 роки
+            student.GetOlder(2);
+            document.getElementById("info").innerHTML += "<br>Після того як Іван став старшим на 2 роки:<br>" + student.getInfo();
+
+            // Змінюємо прізвище
+            student.ChangeSurname("Мельник");
+            document.getElementById("info").innerHTML += "<br>Після зміни прізвища: " + student.getInfo();
+
+            // Переводимо студента на наступний курс
+            student.MoveToSecondCourse();
+            document.getElementById("info").innerHTML += "<br>Після переведення на наступний курс: " + student.getInfo();
+
+            // Якщо студент на останньому курсі, то виведемо повідомлення
+            student.MoveToSecondCourse(); // Спробуємо перевести на 3 курс
+            document.getElementById("info").innerHTML += "<br>Спроба перевести на курс після останнього: " + student.getInfo();
+        }
+
+        // Чекаємо, поки сторінка завантажиться, щоб виконати тест
+        window.onload = function() {
+            testStudent(); // Запускаємо тестування після завантаження сторінки
+        };
+    </script>
+</head>
+<body>
+    <h1>Демонстрація створення та роботи з об'єктом Student</h1>
+
+    <div id="info">
+        <!-- Тут буде виводитись інформація про студента -->
+    </div>
+</body>
+</html>

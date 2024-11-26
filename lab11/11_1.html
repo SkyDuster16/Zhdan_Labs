@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаб11</title>
+    <script>
+        // Змінна для таймера
+        let inactivityTimer;
+        
+        function resetInactivityTimer() {
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(showExplanation, 60000); // 60000 мс = 1 хв
+        }
+
+        // Функція для показу пояснення
+        function showExplanation() {
+            alert("Будь ласка, заповніть форму. Введіть дані в усі обов'язкові поля.");
+        }
+        
+        // Відслідковуємо введення даних в форму та скидаємо таймер
+            const formElements = document.querySelectorAll("form input");
+            formElements.forEach(element => {
+                element.addEventListener("input", resetInactivityTimer);
+
+        // Запуск таймера при завантаженні сторінки
+        window.onload = function() {
+            resetInactivityTimer();
+            });
+        };
+    </script>
+    <style>
+        body {
+            align-items: auto;
+            justify-content: auto;
+            background-color: #e9f542;
+            display: grid;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 250px;
+            margin-bottom: auto;
+ }
+        h1 {
+            display: flex;
+            justify-content: space-around;
+            font-size: 25px;
+        }
+        form {
+            display:grid;
+            justify-content: unsafe;
+            margin:auto;
+        }
+        div {
+            display: grid;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <h1>Лабораторна робота №11</h1>
+    </div>
+        <div>
+    <form>
+        <label for="name">Ім'я:</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="surname">Прізвище:</label>
+        <input type="text" id="surname" name="surname"><br><br>
+
+        <label for="email">Електронна пошта:</label>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label for="phone">Номер телефону:</label>
+        <input type="text" id="phone" name="phone" required><br><br>
+
+        <label for="message">Повідомлення:</label>
+        <textarea id="message" name="message"></textarea><br><br>
+
+        <input type="submit" value="Надіслати">
+    </form>
+    </div>
+</body>
+</html>

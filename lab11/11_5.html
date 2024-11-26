@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сортування слів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+        button {
+            margin-top: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Сортування слів у алфавітному порядку</h1>
+    <textarea id="inputText" placeholder="Введіть текст тут..."></textarea>
+    <button onclick="sortWords()">Сортувати слова</button>
+
+    <div id="result"></div>
+
+    <script>
+        function sortWords() {
+            // Отримуємо текст з textarea
+            const text = document.getElementById('inputText').value;
+
+            // Розбиваємо текст на слова, видаляючи зайві пробіли
+            const words = text.split(/\s+/).filter(word => word.length > 0);
+
+            // Сортуємо слова в алфавітному порядку
+            const sortedWords = words.sort((a, b) => a.localeCompare(b));
+
+            // Виводимо результат
+            document.getElementById('result').innerText = sortedWords.join(', ');
+        }
+    </script>
+
+</body>
+</html>

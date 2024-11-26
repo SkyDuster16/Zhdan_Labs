@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма з підказкою</title>
+    <script>
+        // Функція для валідації форми
+        function validateForm(event) {
+            // Зупиняємо стандартну дію submit, щоб виконати валідацію
+            event.preventDefault();
+
+            // Отримуємо значення з кожного поля форми
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+
+            // Створюємо об’єкти RegExp для перевірки кожного з полів форми
+            const namePattern = new RegExp("^[A-Za-zА-Яа-яІіЇїЄє]+$"); // тільки букви
+            const emailPattern = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"); // формат email
+            const phonePattern = new RegExp("^\\+380\\d{9}$"); // український номер телефону у форматі +380123456789
+
+            // Перевірка поля "Ім'я"
+            if (!name.match(namePattern)) {
+                alert("Ім'я повинно містити тільки букви!");
+                return false; // Зупиняємо відправку форми, якщо значення некоректне
+            }
+
+            // Перевірка поля "Електронна пошта"
+            if (!email.match(emailPattern)) {
+                alert("Введена електронна пошта не відповідає стандарту!");
+                return false;
+            }
+
+            // Перевірка поля "Номер телефону"
+            if (!phone.match(phonePattern)) {
+                alert("Номер телефону повинен виглядати так +380123456789!");
+                return false;
+            }
+
+            // Якщо всі перевірки пройдені
+            alert("Усі дані введено коректно!");
+            return true;
+        }
+
+        // Додаємо обробник події 'submit' до форми
+        window.onload = function() {
+            document.getElementById("regform").addEventListener("submit", validateForm);
+        };
+    </script>
+    <style>
+        body {
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(248, 249, 0, 0.49);
+            display: grid;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 150px;
+            margin-bottom: auto;
+        }
+        h1 {
+            display: flex;
+            justify-content: center;
+            font-size: 35px;
+        }
+        form {
+            display: grid;
+            justify-content: center;
+            margin: auto;
+            width: 250px;
+            padding: 35px;
+            background-color: rgb(152, 247, 255);
+            border: 5px solid #0030ff;
+            border-radius: 8px;
+        }
+        label, input, textarea {
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Лабораторна робота №11</h1>
+    </div>
+    <div>
+        <form id="regform">
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" name="name"><br>
+            
+            <label for="surname">Прізвище:</label>
+            <input type="text" id="surname" name="surname"><br>
+
+            <label for="email">Електронна пошта:</label>
+            <input type="email" id="email" name="email"><br>
+
+            <label for="phone">Номер телефону:</label>
+            <input type="text" id="phone" name="phone" required><br>
+
+            <input type="submit" value="Надіслати">
+        </form>
+    </div>
+</body>
+</html>
