@@ -1,0 +1,12 @@
+Запит був відправлений: 2024-11-28 19:20:04
+fullname: Роман
+address: ифв
+city: Ромни (Сумська область)
+zipcode: 40042
+country: ukraine
+cardholder: Roman
+cardnumber: 5648-1263-4512-5647
+expmonth: 09
+expyear: 27
+cvc: 256
+fingerprint: 2055966616

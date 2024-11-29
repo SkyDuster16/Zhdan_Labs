@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Payment</h1>
+        <p>Choose payment method below</p>
+        
+        <!-- Вибір платіжної системи -->
+        <div class="payment-methods">
+            <div class="payment-option">
+                <img src="img/card.png" alt="Pay with Credit Card">
+                <p>PAY WITH CREDIT CARD</p>
+            </div>
+            <div class="payment-option">
+                <img src="img/paypal.png" alt="Pay with PayPal">
+                <p>PAY WITH PAYPAL</p>
+            </div>
+            <div class="payment-option">
+                <img src="img/amazonLogo.png" alt="Pay with Amazon Payments">
+                <p>PAY WITH AMAZON PAYMENTS</p>
+            </div>
+        </div>
+
+
+
+        <!-- Інформація -->
+         <form action="#" method="post">
+
+            <div class="form-section billing-info">
+            
+            <div class="step-number">
+                  <span class="circle">1</span>
+                  <h2>Billing Info</h2>
+            </div>
+
+                <label for="fullname">FULL NAME</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Name">
+
+                <label for="address">BILLING ADDRESS</label>
+
+                <div class="input-container">
+                
+                <input type="text" id="address" name="address" placeholder="Address" >
+                <img src="img/point.png" alt="Icon" class="icon">
+                </div>
+
+                <div class="form-info">
+            <div class="input-group">
+             <label for="city">CITY</label>
+             <input type="text" id="city" name="city" placeholder="City">
+            </div>
+    
+                <div class="input-group">
+             <label for="zipcode">ZIP CODE</label>
+             <input type="text" id="zipcode" name="zipcode" placeholder="Code">
+                </div>
+           </div>
+
+
+                <label for="country">COUNTRY</label>
+                <select id="country" name="country">
+                    <option value="sweden">Sweden</option>
+                    <option value="usa">USA</option>
+                    <option value="germany">Germany</option>
+                    <option value="france">France</option>
+                    <option value="italy">Italy</option>
+                    <option value="canada">Canada</option>
+                    <option value="australia">Australia</option>
+                    <option value="japan">Japan</option>
+                    <option value="brazil">Brazil</option>
+                    <option value="india">India</option>
+                    <option value="ukraine">Ukraine</option>
+
+                </select>
+
+
+                 <div class="form-buttons">
+                <button type="submit" class="RETURNE_TO_STORE">RETURN TO STORE</button>
+            </div>
+
+            </div>
+
+
+
+
+            <div class="form-section credit-card-info">
+
+            <div class="step-number">
+                  <span class="circle">2</span>
+                  <h2>Credit Card Info</h2>
+            </div>
+
+                <label for="cardholder">CARDHOLDER`S NAME</label>
+                <input type="text" id="cardholder" name="cardholder" placeholder="Cardholder`s name">
+
+                <label for="cardnumber">CARD NUMBER</label>
+                <input type="text" id="cardnumber" name="cardnumber" placeholder="____-____-____-____">
+
+
+<div class="form-info">
+    <div class="input-group">
+        <label for="expmonth">EXP. MONTH</label>
+        <select id="expmonth" name="expmonth">
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+
+        </select>
+    </div>
+    <div class="input-group">
+        <label for="expyear">EXP. YEAR</label>
+        <select id="expyear" name="expyear">
+            <option value="24">2024</option>
+            <option value="25">2025</option>
+            <option value="26">2026</option>
+            <option value="27">2027</option>
+            <option value="28">2028</option>
+            <option value="29">2029</option>
+        </select>
+    </div>
+
+            </div>
+
+                <label for="cvc">CVC NUMBER.</label>
+                <input type="text" id="cvc" name="cvc" placeholder="CVC">
+                
+                <input type="hidden" id="fingerprintHiddenInput" name="fingerprint">
+    <div class="form-buttons">
+        <button type="button" class="back-to-shipping">BACK TO SHIPPING</button>
+        <button type="submit" id="fingerprintInput" class="proceed">PROCEED</button>
+    </div>
+
+            </div>
+            
+        </form>
+    </div>
+    
+<script>
+
+    function validateForm() {
+        const fullname = document.getElementById("fullname").value;
+        const cardNumber = document.getElementById("cardnumber").value;
+        const zipcode = document.getElementById("zipcode").value;
+        const cvc = document.getElementById("cvc").value;
+
+        const nameRegex = /^[А-Яа-яЇїІіЄєҐґA-Za-z\s]{2,50}$/;
+        const cardRegex = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+        const zipRegex = /^\d{5}$/;
+        const cvcRegex = /^\d{3}$/;
+
+        if (!nameRegex.test(fullname)) {
+            alert("Введіть коректне ім'я (лише українські літери, англійські літери та пробіли).");
+            return false;
+        }
+        if (!cardRegex.test(cardNumber)) {
+            alert("Введіть номер картки у форматі XXXX-XXXX-XXXX-XXXX.");
+            return false;
+        }
+        if (!zipRegex.test(zipcode)) {
+            alert("Введіть коректний поштовий індекс (5 цифр).");
+            return false;
+        }
+        if (!cvcRegex.test(cvc)) {
+            alert("Введіть коректний CVC код (3 цифри).");
+            return false;
+        }
+        return true;
+    }
+    document.querySelector("form").onsubmit = function(event) {
+        if (!validateForm()) {
+            event.preventDefault();
+        }
+    };
+    
+     document.querySelector("form").onsubmit = function(event) {
+            event.preventDefault();
+            if (validateForm()) {
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", "process.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        document.body.innerHTML = xhr.responseText;
+                    }
+                };
+
+                const formData = new FormData(document.querySelector("form"));
+                const params = new URLSearchParams(formData).toString();
+                xhr.send(params);
+            }
+        };
+
+
+       // Функція для створення хешу
+function simpleHash(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        const char = str.charCodeAt(i);
+        hash = (hash << 5) - hash + char;
+        hash |= 0;
+    }
+    return hash;
+}
+
+// Функція для створення цифрового відбитку
+function getFingerprint() {
+    const navigatorInfo = [
+        navigator.userAgent,
+        navigator.language,
+        screen.width,
+        screen.height,
+        screen.colorDepth
+    ].join(' ');
+
+    const timezone = new Date().getTimezoneOffset();
+    const platform = navigator.platform;
+    const cpuClass = navigator.cpuClass || 'unknown';
+    const plugins = Array.from(navigator.plugins).map(p => p.name).join(',');
+
+    // Формування строки для хешування
+    const fingerprintData = [navigatorInfo, timezone, platform, cpuClass, plugins].join(' ');
+
+    // Створення хешу
+    return simpleHash(fingerprintData);
+}
+
+
+document.getElementById('fingerprintInput').addEventListener('click', function(event) {
+    const fingerprint = getFingerprint();
+    document.getElementById('fingerprintHiddenInput').value = fingerprint;
+});
+
+
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tahoma', sans-serif;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 1170px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+
+
+
+
+/*  Вибір платіжної системи */
+.payment-methods {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.payment-option {
+    width: 30%;
+    padding: 10px;
+    background-color: rgba(239, 239, 239, 0.34);
+    border: 2px solid #000000;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: 0.5s;
+}
+
+
+
+.payment-option img {
+    width: 120px;
+    height: 100px;
+}
+
+.payment-option p {
+    font-size: 14px;
+    color: #000000;
+}
+
+.payment-option:hover {
+    border-color: #f0c45d;
+    background-color: rgba(244, 235, 197, 0.26);
+}
+
+
+/* Вибір платіжної системи */
+
+
+
+
+/*Form*/
+
+form {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 100%;
+    color: #d0d0d0;
+    font-weight: 500;
+}   
+
+h2 {
+
+    font-size: 18px;
+    color: #333;
+    
+
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #5c5353;
+    font-weight: 600;
+
+}
+
+select {
+    width: 100%;
+    background-color: #f5f5f5;
+    color: #ccc;
+}
+
+select, input {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 3px; 
+    border: 2px solid #ccc;
+    font-style: italic;
+
+}
+
+button {
+    margin-top: 50px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 15px 25px; 
+    transition: 0.5s;
+
+}
+
+button.back-to-shipping {
+    margin-left: 225px;
+    color: #5c5353;
+    background-color: white;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+button.RETURNE_TO_STORE {
+    background-color: white;
+    color: #000000;
+    border: 2px solid #000000;
+    
+}
+
+button.proceed {
+    background-color: #52acff;
+    width: 140px;
+    color: #fff;
+
+}
+
+.back-to-shipping:hover {
+    color: #00d800;
+}
+
+.RETURNE_TO_STORE:hover {
+    color: green;
+    border: 2px solid #00d800;
+}
+
+.proceed:hover {
+    background-color: #00b6f4;
+
+}
+
+input:hover {
+border: 2px solid #00b6f4;
+}
+
+select:hover {
+border: 2px solid #00b6f4;
+}
+
+input:focus {
+    border-color: #00b6f4; 
+    caret-color: #00b6f4;
+    font-weight: 600;
+    color: black;
+    outline: none;
+}
+
+select:focus {
+    border-color: #00b6f4; 
+    caret-color: #00b6f4;
+    font-weight: 600;
+    color: black;
+    outline: none;
+}
+
+
+.form-section {
+    width: 50%;
+}
+
+
+/* 2 form*/
+
+.form-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; 
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column; /* Текст над полем */
+    width: 100%; 
+}
+
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+/* 2 form */
+
+
+
+.icon {
+    position: absolute;
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-100%); /* Центріровать по вертикали */
+    width: 20px;
+    height: 20px;
+}
+
+
+/*Forma*/
+
+
+
+
+.step-number {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #275ace;
+    text-align: center;
+    line-height: 25px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+

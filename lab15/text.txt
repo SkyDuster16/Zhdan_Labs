@@ -1,0 +1,10 @@
+fullname: Роман
+address: ифв
+city: Ромни (Сумська область)
+zipcode: 40042
+country: ukraine
+cardholder: Roman
+cardnumber: 4586-8789-6236-1542
+expmonth: 08
+expyear: 26
+cvc: 237
