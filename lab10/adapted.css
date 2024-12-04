@@ -1,0 +1,197 @@
+@media (max-width: 1365px) {
+/* I */
+.menu {
+    font-size: 1rem;
+    gap: 1;
+}
+
+.logo {
+     padding-left: 5%;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.navbar {
+    padding: 0 1rem 0 0;
+}
+
+/* II */
+.image-content img {
+    margin-right: 3.5rem;
+    width: 400px;
+}
+
+/* III */
+
+.section-ingredients h2{
+    font-size: 1.5rem;
+}
+
+.content {
+    padding: 1rem 1rem 0 1.25rem;
+}
+
+
+}
+
+
+@media (max-width: 992px) {
+/* I */
+.menu {
+    font-size: 0.8rem;
+    gap: 0.5;
+}
+
+.logo {
+     padding-left: 5%;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.navbar {
+    padding: 0 4.5rem 0 0;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+}
+
+.hero-content img {
+    margin-top: -0.01rem;
+}
+
+/* II */
+.image-content img {
+    margin-right: 2.5rem;
+    width: 300px;
+}
+
+.text-content {
+    margin-left: 10%;
+}
+
+/* VI */
+.images img {
+    height: 25rem;
+}
+
+}
+
+
+@media (max-width: 850px) {
+
+    /* I */
+.menu {
+    font-size: 0.8rem;
+    gap: 0.2;
+}
+
+.logo {
+     padding-left: 3%;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.navbar {
+    padding: 0 1.5rem 0 0;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+}
+
+
+
+.hero-content img {
+    margin-top: -0.01rem;
+}
+
+/* II */
+.image-content img {
+    margin-right: 5rem;
+    width: 250px;
+}
+
+.text-content h2 {
+    font-size: 2rem;
+}
+
+.text-content p {
+ font-size: 0.8rem;
+}
+
+.text-content {
+    margin-left: 5%;
+    width: 20rem;
+}
+
+/* V */
+.kv2 {
+    margin: auto auto;
+}
+
+
+
+
+
+/* VI */
+.images img {
+    height: 25rem;
+}
+
+.reservation-section {
+    display: block;
+    padding: 5rem 5rem 5rem 10rem;
+
+}
+
+
+
+
+
+}
+
+
+@media (max-width: 782px) {
+ /* I */
+.menu {
+    font-size: 0.8rem;
+    gap: 0.2;
+}
+
+.logo {
+    display: block;
+     padding-left: 3%;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.navbar {
+    padding: 0 1.5rem 0 0;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+}
+
+
+
+.hero-content img {
+    margin-top: -0.01rem;
+}
+
+.social a img {
+    width: 0.9rem;
+    margin-left: 0.625rem;
+}
+
+}
+
